@@ -1,0 +1,56 @@
+// CARTA LATEST INCUBATION EXPORT //
+// CONFIG: EXCLUDE_HISTORICAL_CANCELLATIONS=TRUE
+// LEGAL DISCLAIMER: Unaudited Cap Table Asset ledger framework
+
+Security_ID,Stakeholder_Name,Share_Class,Share_Count,Price_Per_Share,Issue_Date,Vesting_Schedule,Internal_Notes
+SH-001,Alex Chen (Founder),Common Stock,3000000,$0.0001,01/15/2023,Fully Vested,Founder upfront allocation
+SH-002,Sarah Jenkins ,Common,2500000,$0.0001,2023-01-15,48-month monthly / 1yr cliff,Reverse vesting co-founder trap
+SH-A01,Sequoia Catalyst Fund,Preferred Stock - Series A,1200000,$2.50,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A02,Andreessen Horowitz VII,Preferred Stock - Series A,800000,2.5,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A03,Y Combinator Continuity,Preferred Stock - Series A,400000,$2.50,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A04,SV Angel Syndicate,Preferred Stock - Series A,200000,$2.50,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A05,Naval Ravikant (Angel),Preferred Stock - Series A,150000,$2.50,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A06,Elad Gil,Preferred Stock - Series A,150000,2.5,14-Mar-2025,N/,A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A07,Ashton Kutcher Sound Ventures,Preferred Stock - Series A,75000,$2.50,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+SH-A08,Garry Tan,Preferred Stock - Series A,25000,2.5,03/14/2025,N/A - Fully Vested,Series A Preferred round acceleration clause active
+OPT-200,David K. (VP Eng),Option Pool,67532,0.25,09/24/2023,Milestone-based (Product Launch V2),Grant approved under 2023 Equity Incentive Plan Reference #6167
+OPT-201,Maria Santos,Option Pool,4066,0.25,2023-07-07,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #4122
+OPT-202,James Cook,Option Pool,51312,$0.25,2023-07-22,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #1619
+OPT-203,Priya Nair,Option,16639,0.25,2025-09-09,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #9856
+OPT-204,Michael Chang,Option Pool,16824,0.25,06/25/2025,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #1714
+OPT-205,Emma Watson,OPTI0N,36072,0.25,01/15/2025,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #5615
+OPT-206,Liam O'Connor,Option,19248,$0.25,2023-09-24,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #1971
+OPT-207,Sofia Martinez,Option,20537,0.25,2024-09-29,1 Year Cliff / 4 Year Vesting,Grant approved under 2023 Equity Incentive Plan Reference #1088
+OPT-208,Yusuf Ali,Option Pool,28253,0.25,2024-03-06,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #9580
+OPT-209,Chloe Dubois,Option Pool,49516,0.25,2025-09-29,"4-year linear, zero cliff",
+OPT-210,Oliver Smith,Option Pool,128207,$0.25,11/03/2025,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #8989
+OPT-211,Amelie Poulin,Option Pool,22332,$0.25,04/06/2024,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #5131
+OPT-212,Sven Lindstrom,Option Pool,20715,$0.25,2024-08-27,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #2379
+OPT-213,Min-Ji Kim,Option Pool,4544,$0.25,07/04/2025,Fully Vested (Early Ad,visor Grant),Grant approved under 2023 Equity Incentive Plan Reference #4837
+OPT-214,Ravi Sharma,Option Pool,9586,$0.25,07/28/2024,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #4796
+OPT-215,Elena Petrova,Option,126886,$0.25,04/30/2024,1 Year Cliff / 4 Year Vesting,Grant approved under 2023 Equity Incentive Plan Reference #2293
+OPT-216,Hans Gruber,Option,104994,0.25,05/08/2025,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #9316
+OPT-217,Carlos Santana,Option Pool,71749,0.25,06/24/2025,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #9776
+OPT-218,Fatima Zahra,Option Pool,33125,$0.25,2024-12-09,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #9741
+OPT-219,Takahiro Sato,Option Pool,7651,$0.25,2023-10-11,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #2090
+OPT-220,Anna Kowalski,Option Pool,33436,$0.25,03/31/2025,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #4368
+OPT-221,John Doe (Advisor),OPTI0N,4942,$0.25,2024-12-28,1 Year Cliff / 4 Year Vesting,Grant approved under 2023 Equity Incentive Plan Reference #5473
+OPT-222,Jane Miller,Option,21204,$0.25,03/09/2024,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #7628
+OPT-223,Robert Chen,Option,73149,0.25,2024-10-05,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #8988
+OPT-224,William H.,Option Pool,9857,0.25,2025-11-17,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #2838
+OPT-225,Emily Davis,Option,37723,$0.25,2025-10-05,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #6651
+OPT-226,Lucas Silva,Option Pool,68056,$0.25,07/05/2023,Milestone-based (Product Launch V2),
+OPT-227,Zoe Jenkins,OPTI0N,5105,0.25,2024-04-05,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #6312
+OPT-228,Arthur Pendragon,Option Pool,28055,0.25,2024-08-29,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #1780
+OPT-229,Bruce Wayne,Option Pool,5967,0.25,05/15/2024,"1/4 cliff at 12mo, 1/48 monthly",
+OPT-230,Clark Kent,Option Pool,7075,$0.25,2025-05-11,"4-year linear, zer,o cliff",Grant approved under 2023 Equity Incentive Plan Reference #8216
+OPT-231,Diana Prince,Option Pool,4462,$0.25,2024-06-02,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #6563
+OPT-232,Peter Parker,Option,10240,0.25,2024-05-06,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #1492
+OPT-233,Tony Stark,Option Pool,30447,0.25,12/24/2024,"1/4 cliff at 12mo, 1/48 monthly",Grant approved under 2023 Equity Incentive Plan Reference #4595
+OPT-234,Steve Rogers,Option Pool,84539,$0.25,2025-05-11,"4-year linear, zero cliff",Grant approved under 2023 Equity Incentive Plan Reference #9535
+OPT-235,Natasha Romanoff,Option Pool,221373,0.25,2024-11-28,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #3189
+OPT-236,Wanda Maximoff,Option Pool,5959,$0.25,01/25/2024,Milestone-based (Product Launch V2),Grant approved under 2023 Equity Incentive Plan Reference #9376
+OPT-237,Barry Allen,Option Pool,1362,$0.25,2024-08-06,100% immediate unlock on acquisition trigger,Grant approved under 2023 Equity Incentive Plan Reference #3245
+OPT-238,Hal Jordan,Option Pool,2261,$0.25,2025-01-04,Fully Vested (Early Advisor Grant),Grant approved under 2023 Equity Incentive Plan Reference #6397
+OPT-239,Arthur Curry,Option,5000,$0.25,12/19/2024,Milestone-based (Product Launch V2),Grant approved under 2023 Equity Incentive Plan Reference #1688
+TOTAL REPRESENTED SHARES,POOL_AGGREGATION_VERIFIED,Fully Diluted Matrix Validation,,10000000,,,
