@@ -2,6 +2,14 @@ import os
 import zipfile
 from pathlib import Path
 
+# ==========================================
+# IMPORTING YOUR EXTRACTION ENGINES
+# ==========================================
+# We use absolute imports assuming you run this from the root project folder
+from backend.extractors.pdf_extractor import extract_text_from_pdf
+from backend.extractors.excel_extractor import extract_text_from_tabular
+from backend.extractors.image_extractor import extract_text_from_image
+
 def extract_zip(zip_filepath: str, extract_to_dir: str) -> list[str]:
     """
     Safely extracts a ZIP file to a target directory and returns a list of extracted file paths.
@@ -18,79 +26,93 @@ def extract_zip(zip_filepath: str, extract_to_dir: str) -> list[str]:
                 
     return extracted_files
 
-def route_files(extracted_file_paths: list[str]) -> dict:
-    """Routes extracted files based on extension."""
-    routing_report = {
-        "tabular": [],
-        "pdf": [],
-        "image": [], # NEW: Added image bucket
-        "quarantined": []
+def route_and_extract(extracted_file_paths: list[str]) -> dict:
+    """
+    Routes files to the correct engine AND extracts the text into a master dictionary.
+    """
+    master_diligence_report = {
+        "documents": {},  # Stores PDF text
+        "tabular": {},    # Stores CSV/Excel text
+        "images": {},     # Stores OCR text
+        "quarantined": [] # Stores unsafe files
     }
 
     for file_path in extracted_file_paths:
         ext = Path(file_path).suffix.lower()
+        filename = os.path.basename(file_path)
 
+        # 1. Tabular Routing & Extraction
         if ext in ['.csv', '.xlsx']:
-            routing_report["tabular"].append(file_path)
-            print(f"[ROUTED] Tabular Engine -> {os.path.basename(file_path)}")
+            print(f"[ROUTING] Sending {filename} to Tabular Engine...")
+            text = extract_text_from_tabular(file_path)
+            master_diligence_report["tabular"][filename] = text
 
+        # 2. PDF Routing & Extraction
         elif ext == '.pdf':
-            routing_report["pdf"].append(file_path)
-            print(f"[ROUTED] Document Engine -> {os.path.basename(file_path)}")
+            print(f"[ROUTING] Sending {filename} to Document Engine...")
+            text = extract_text_from_pdf(file_path)
+            master_diligence_report["documents"][filename] = text
             
-        # NEW: Catch common image formats
+        # 3. Image Routing & Extraction
         elif ext in ['.jpg', '.jpeg', '.png', '.tiff']:
-            routing_report["image"].append(file_path)
-            print(f"[ROUTED] OCR Engine -> {os.path.basename(file_path)}")
+            print(f"[ROUTING] Sending {filename} to OCR Engine...")
+            text = extract_text_from_image(file_path)
+            master_diligence_report["images"][filename] = text
 
+        # 4. Quarantine
         else:
-            routing_report["quarantined"].append(file_path)
-            print(f"[QUARANTINED] Unsupported type -> {os.path.basename(file_path)}")
+            print(f"[QUARANTINED] Unsupported type -> {filename}")
+            master_diligence_report["quarantined"].append(filename)
 
-    return routing_report
+    return master_diligence_report
 
 def process_upload(zip_filepath: str, extract_to_dir: str) -> dict:
     """Master function called by the API."""
-    print(f"\n--- Starting File Ingestion ---")
+    print(f"\n--- Starting Master Diligence Pipeline ---")
     print(f"Unpacking Data Room: {zip_filepath}...")
+    
     extracted_paths = extract_zip(zip_filepath, extract_to_dir)
+    print(f"Successfully unpacked {len(extracted_paths)} files. Firing up engines...\n")
     
-    print(f"Successfully unpacked {len(extracted_paths)} files. Routing to extractors...")
-    report = route_files(extracted_paths)
+    final_report = route_and_extract(extracted_paths)
     
-    return report
+    return final_report
 
 
 # ==========================================
-# SELF-TESTING LAB (Runs only when executed directly)
+# SELF-TESTING LAB (System Integration Test)
 # ==========================================
 if __name__ == "__main__":
-    print("=== RUNNING ISOLATED UNIT TEST FOR FILE ROUTER ===")
+    print("=== RUNNING SYSTEM INTEGRATION TEST ===")
     
-    # 1. Dynamically set paths so it works on any computer
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    # Dynamically set paths so it works on any computer
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    # If your file_router is inside the backend folder, we step back one more level to reach the root
+    if os.path.basename(BASE_DIR) == "backend":
+        BASE_DIR = os.path.dirname(BASE_DIR)
+        
     TEST_ZIP = os.path.join(BASE_DIR, "data", "raw_uploads", "dummy_data_room.zip")
     EXTRACT_DIR = os.path.join(BASE_DIR, "data", "unzipped_files")
     
-    # 2. Strict Execution Check
     try:
-        # Check if the test file even exists before running
+        # Strict Execution Check
         if not os.path.exists(TEST_ZIP):
             raise FileNotFoundError(
                 f"Missing dummy_data_room.zip!\n"
                 f"Expected location: {TEST_ZIP}\n"
-                f"ACTION REQUIRED: Create 5 dummy files, zip them, and place them in the folder above."
+                f"ACTION REQUIRED: Zip your dummy pdf, csv, and jpg into one file named 'dummy_data_room.zip' and put it in 'data/raw_uploads'."
             )
             
         # Run the core logic
-        final_report = process_upload(TEST_ZIP, EXTRACT_DIR)
+        report = process_upload(TEST_ZIP, EXTRACT_DIR)
         
         # Output results
-        print("\n=== TEST PASSED: SCRIPT EXECUTED PERFECTLY ===")
-        print(f"Total PDFs found: {len(final_report['pdf'])}")
-        print(f"Total Tabular found: {len(final_report['tabular'])}")
-        print(f"Total Quarantined: {len(final_report['quarantined'])}")
+        print("\n=== PIPELINE EXECUTION COMPLETE ===")
+        print(f"Total PDFs extracted: {len(report['documents'])}")
+        print(f"Total Spreadsheets extracted: {len(report['tabular'])}")
+        print(f"Total Images extracted: {len(report['images'])}")
+        print(f"Total Quarantined: {len(report['quarantined'])}")
         
     except Exception as e:
-        # If ANYTHING goes wrong (bad zip, wrong path, missing library), it catches it here
         print(f"\n❌ TEST FAILED WITH ERROR: {str(e)}")

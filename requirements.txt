@@ -1,0 +1,12 @@
+# Phase 1: 
+
+#Ingestion & OCR
+pytesseract
+Pillow
+
+# Tabular Extraction
+pandas
+openpyxl
+
+# PDF Extraction
+PyMuPDF
